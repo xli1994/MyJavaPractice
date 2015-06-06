@@ -14,8 +14,6 @@ public class FileProcessApplication extends Application
 
 	public FileProcessApplication()
 	{
-		//singletons.add(new UploadFileResource());
-		//singletons.add(new DownloadFileResource());
 		clazz.add(UploadFileResource.class);
 		clazz.add(DownloadFileResource.class);
 

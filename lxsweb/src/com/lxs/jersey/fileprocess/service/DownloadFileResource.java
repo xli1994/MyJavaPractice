@@ -60,7 +60,7 @@ public class DownloadFileResource
     	  
     	  throw new FileNotFoundException(filename);
       }
-      System.out.println("responding file now::"+file.getAbsolutePath());
+      System.out.println("Responding file downloading now::"+file.getAbsolutePath());
       return Response.ok(file, MediaType.APPLICATION_OCTET_STREAM)
     	      .header("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"" ) //optional
     	      .build();

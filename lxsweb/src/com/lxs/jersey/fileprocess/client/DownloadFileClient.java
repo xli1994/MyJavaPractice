@@ -57,12 +57,12 @@ public class DownloadFileClient
 	}
 	
 	/**
-	 * This use URL to open connection as client to download file
+	 * This use URL as client to open connection  to download file from REST Service
 	 * @throws Exception
 	 */
 	public static void testURLClient( ) throws Exception
 	{
-		System.out.println("\n Test using URL to get file stream ===");
+		System.out.println("\n Using URL to get file stream ===");
 		System.out.println("Temp File name for param one =" + FILENAME);
 		
 		URL getUrl = new URL(targetURL);
@@ -130,7 +130,7 @@ public class DownloadFileClient
 	{
 		// =============Test using Client:  =========
 		
-		System.out.println("\n Test using JaxRsClient to download file ===");
+		System.out.println("\n Using JaxRs Client to download file ===");
 		System.out.println("JAX-RS Client ::File name =" + FILENAME);
 
 		Client client = ClientBuilder.newClient();
