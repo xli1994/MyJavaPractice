@@ -1,5 +1,5 @@
 # RESTService
-This repositary contains some java code examples about REST Service (JAXRS 2.0 with Jersery implementation)
+This repository contains some java code examples for REST Service (JAXRS 2.0 with Jersery implementation)
 
 6/6/2015: Two sets of codes are uploaded to "lxsweb/src/com/lxs/jersey/fileprocess/", including download/upload files from/to REST service with two client types:
 1. Using URL (open HttpURLConnection);
