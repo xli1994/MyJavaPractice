@@ -50,6 +50,9 @@ public class CustomerServiceClient
 		//create customer with Json
 		cus.createCustomerJson();
 
+		//delete a customer
+		cus.deleteCustomer();
+		
 		//get customer with xml
 		cus.getCustomerXML();
 
@@ -122,6 +125,18 @@ public class CustomerServiceClient
 		response.close();
 	}
 
+	/**
+	 * Delete a customer
+	 */
+	public void deleteCustomer()
+	{
+		System.out.println("\n*** Delete Customer (id=4) **");
+		Response response = client.target(sTarget + "/4").request().delete();
+				
+		System.out.println("Got delete response =" + response.readEntity(String.class)+
+				"; status="+response.getStatus());
+	}
+	
 	/**
 	 * Get Customer object with xml
 	 * @throws Exception 

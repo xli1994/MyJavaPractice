@@ -2,6 +2,7 @@ package com.lxs.jersey.rs.customerservice.service;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -16,7 +17,6 @@ import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -116,11 +115,11 @@ public class CustomerResource
 		String baseUri = uriInfo.getBaseUri().getPath();
 		String absUri = uriInfo.getAbsolutePath().getPath();
 		String path = uriInfo.getPath();
-		String relativepath = uriInfo.relativize(uriInfo.getRequestUri()).getPath();
+		//String relativepath = uriInfo.relativize(uriInfo.getRequestUri()).getPath();
 		String resolve = uriInfo.resolve(uriInfo.getBaseUri()).getPath();
 		System.out.println("path=" + path + "; requestUri=" + requestUri + "; baseUri=" + baseUri
 				+ ";absUri=" + absUri);
-		System.out.println("relativepath=" + relativepath + "; resolve=" + resolve);
+		//System.out.println("relativepath=" + relativepath + "; resolve=" + resolve);
 
 		return Response.created(URI.create(path + "/" + customer.getId())).build();
 	}
@@ -144,6 +143,16 @@ public class CustomerResource
 		return Response.created(URI.create(path + "/" + customer.getId())).build();
 	}
 
+	@DELETE
+	@Path("{id}")
+	public Response deleteCustomer(@PathParam("id") int id)
+	{
+		System.out.println("deleteCustomer called; id="+id);
+		customerDB.remove(id);
+		 
+		return Response.ok("deleted").build();
+	}
+	
 	@GET
 	@Path("{id}")
 	//There is a problem to return Customer with JSON if xmlElement name is not the same as 
